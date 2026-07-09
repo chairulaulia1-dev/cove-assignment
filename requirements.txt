@@ -1,0 +1,6 @@
+# BigQuery ingestion and local environment loading
+google-cloud-bigquery>=3.25,<4
+python-dotenv>=1.0,<2
+
+# Transformation framework and BigQuery adapter
+dbt-bigquery>=1.8,<2

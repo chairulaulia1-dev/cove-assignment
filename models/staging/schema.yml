@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: stg_properties
+    description: Cleaned and typed property records.
+    columns:
+      - name: property_id
+        description: Stable property identifier originating from MongoDB `_id`.
+        data_tests: [not_null, unique]
+      - name: lease_start_date
+        description: First inclusive date on which the property is available.
+        data_tests: [not_null]
+      - name: lease_end_date
+        description: Final inclusive date in the contracted lease window.
+        data_tests: [not_null]
+  - name: stg_rooms
+    description: Cleaned and typed room records.
+    columns:
+      - name: room_id
+        description: Stable room identifier originating from MongoDB `_id`.
+        data_tests: [not_null, unique]
+      - name: property_id
+        description: Parent property identifier.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_properties')
+                field: property_id
+  - name: stg_tenancies
+    description: Cleaned and typed tenancy records.
+    columns:
+      - name: tenancy_id
+        description: Stable tenancy identifier originating from MongoDB `_id`.
+        data_tests: [not_null, unique]
+      - name: room_id
+        description: Room occupied by the tenancy.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_rooms')
+                field: room_id
+      - name: status
+        description: Normalized operational tenancy status.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['active', 'cancelled']

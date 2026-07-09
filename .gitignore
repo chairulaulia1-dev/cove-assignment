@@ -1,0 +1,30 @@
+# Local configuration and credentials
+.env
+profiles.yml
+keys/
+*.key.json
+*service-account*.json
+
+# Generated dbt artifacts
+target/
+logs/
+dbt_packages/
+
+# Python environments and bytecode
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Operating-system and editor metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.user.yml
+
+# Keep final assessment screenshots in version control.
+!docs/screenshots/
+!docs/screenshots/.gitkeep
+!docs/screenshots/*.png

@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  # Project and dataset names remain environment-specific.
+  - name: raw_property_occupancy
+    description: Raw MongoDB JSONL exports loaded without business transformations.
+    database: "{{ env_var('GCP_PROJECT_ID') }}"
+    schema: "{{ env_var('BIGQUERY_DATASET_RAW') }}"
+    tables:
+      - name: raw_properties
+        description: Property records preserved from the MongoDB export.
+      - name: raw_rooms
+        description: Room records preserved from the MongoDB export.
+      - name: raw_tenancies
+        description: Tenancy records preserved from the MongoDB export.

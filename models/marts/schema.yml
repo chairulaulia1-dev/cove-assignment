@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: mart_monthly_property_occupancy
+    description: Monthly room-night occupancy metrics by property.
+    columns:
+      - name: month
+        description: Calendar month represented by its first date.
+        data_tests: [not_null]
+      - name: property_id
+        description: Stable property identifier.
+        data_tests: [not_null]
+      - name: available_room_nights
+        description: Room-days inside valid property and room availability.
+        data_tests: [not_null]
+      - name: occupied_room_nights
+        description: Available room-days covered by at least one active tenancy.
+        data_tests: [not_null]
+      - name: occupancy_rate
+        description: Occupied room-nights divided by available room-nights.
+        data_tests: [not_null]

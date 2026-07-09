@@ -1,0 +1,23 @@
+# Project identity must match the profile key in profiles.yml.
+name: property_occupancy
+version: "1.0.0"
+config-version: 2
+
+profile: property_occupancy
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  property_occupancy:
+    # Staging only normalizes source records, so views keep it lightweight.
+    staging:
+      +materialized: view
+      +schema: staging
+    # Persist the dashboard-facing mart for predictable BI performance.
+    marts:
+      +materialized: table
+      +schema: marts
