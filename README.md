@@ -10,8 +10,6 @@ An end-to-end ELT implementation that loads MongoDB JSONL exports into BigQuery,
 | Google Data Studio report | [Property Occupancy Performance](https://datastudio.google.com/reporting/8db7c29d-3dc0-42fd-b627-3220ee2b3263) |
 | BigQuery screenshots | [`docs/screenshots/`](docs/screenshots/) |
 
-> The links and screenshots above must be completed manually before submission. Credentials and local configuration are intentionally excluded from source control.
-
 ## Table of contents
 
 - [Business problem](#business-problem)
